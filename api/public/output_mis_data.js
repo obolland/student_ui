@@ -7,6 +7,7 @@ const outputData = inputData.map(student => {
       "pupil_admission_number": student.LearnerCode,
       "first_name": student.Forename.toLowerCase(),
       "legal_first_name": student.LegalForename,
+      "full_name": student.Forename.toLowerCase() +" "+ student.Surname.toLowerCase(),
       "middle_name": student.MiddleName,
       "last_name": student.Surname.toLowerCase(),
       "legal_last_name": student.LegalSurname,

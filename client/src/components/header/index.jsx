@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import FilterModal from '../modal';
-import axios from 'axios';
+
 import {
   Collapse,
   Navbar,
@@ -15,29 +15,11 @@ import {
   InputGroupText,
   Input,
   Button,
-  //Form
 } from 'reactstrap';
 
-const Header = (props) => {
+const Header = ({ handleSubmit, handleChange, formData }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [formData, setFormData] = useState({search: ''});
   const toggle = () => setIsOpen(!isOpen);
-
-  const handleSubmit = () => {
-    axios.post('http://localhost:9000/getStudentsSearch', formData)
-    .then(res => {
-      console.log(res) //we have data
-    })
-    .catch(err => {
-      console.log(err)
-    })
-  }
-
-  const handleChange = (event) => {
-    const { value, name } = event.target;
-
-    setFormData({ ...formData, [name]: value })
-}
 
   return (
     <div>
