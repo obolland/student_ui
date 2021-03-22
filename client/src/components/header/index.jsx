@@ -24,9 +24,9 @@ const Header = (props) => {
   const toggle = () => setIsOpen(!isOpen);
 
   const handleSubmit = () => {
-    axios.get('/api/studentData', formData)
+    axios.post('http://localhost:9000/getStudentsSearch', formData)
     .then(res => {
-      console.log(res)
+      console.log(res) //we have data
     })
     .catch(err => {
       console.log(err)
@@ -57,7 +57,7 @@ const Header = (props) => {
                   <InputGroupText>Student Finder</InputGroupText>
                 </InputGroupAddon>
                 <Input
-                  placeholder="student name..."
+                  placeholder="student name, id..."
                   name='search'
                   type='text'
                   onChange={handleChange}

@@ -2,8 +2,9 @@ var express = require('express');
 var router = express.Router();
 const outputData = require('../public/output_mis_data')
 
-router.get('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
     const searchCriteria = req.body.search;
+    console.log(searchCriteria)
     const searchResult = (searchCriteria) => {
     return outputData.filter(obj => Object.values(obj).includes(searchCriteria));
     }
