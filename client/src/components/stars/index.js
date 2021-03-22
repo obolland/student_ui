@@ -1,11 +1,17 @@
 import React, {useState} from 'react';
 import StarRatingComponent from 'react-star-rating-component';
+import axios from 'axios';
  
-const Stars = ({ starsAwarded }) => {
-  const [state, setState] = useState({rating: starsAwarded})
+const Stars = ({ starsAwarded, provisionId }) => {
+  const [state, setState] = useState({rating: starsAwarded, provisionId: provisionId})
  
   const onStarClick = (nextValue) => {
     setState({rating: nextValue});
+
+    axios.post('http://localhost:9000/writeStars', state)
+    .then(res => {
+      console.log(res)
+    })
   }
     
     return (                

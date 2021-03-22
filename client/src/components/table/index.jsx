@@ -55,7 +55,7 @@ const StudentDetailTable = ({ studentData }) => {
                           <div key={sen.ProvisionId}>
                             <b>Provision ID - </b>{sen.ProvisionId}<br/>
                             <b>Provision Code - </b>{sen.ProvisionTypeCode} <br/>
-                            <Stars starsAwarded={sen.StarsAwarded}/>
+                            <Stars starsAwarded={student.SENStarsAwarded} provisionId={sen.ProvisionId}/>
                           </div>
                         )
                       })

@@ -50,6 +50,8 @@ const outputData = inputData.map(student => {
       "nhs_number": null,
       "is_pregnant": null,
       "has_emergency_consent": null,
+      "SENStarsAwarded": 0,
+      "SENProvisionId": student.SENProvisionDetails[0].ProvisionId,
       "emergency_contacts": student.ContactDetails.map(contact => {
         return {
           "first_name": contact.ForeName,
@@ -65,7 +67,6 @@ const outputData = inputData.map(student => {
           "StartDate": contact.StartDate,
           "ReviewDate": contact.ReviewDate,
           "EndDate": contact.EndDate,
-          "StarsAwarded": contact.StarsAwarded ? contact.StarsAwarded : 0
         }
       })
   }
