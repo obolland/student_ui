@@ -1,5 +1,6 @@
 import { Table } from 'reactstrap';
 import Stars from '../stars/index';
+import './table.styles.scss';
 
 const StudentDetailTable = ({ studentData, sliderState }) => {
 
@@ -8,6 +9,10 @@ const StudentDetailTable = ({ studentData, sliderState }) => {
     return studentData.filter(student => 
       student.year_code >= sliderState.value[0] && student.year_code <= sliderState.value[1]
     )
+  }
+
+  const contactInfo = (contact) => {
+    alert('NAME: '+contact.first_name+' '+contact.last_name+' RELATIONSHIP: '+contact.Description+' CONTACT ID: '+contact.ContactId)
   }
 
   return (
@@ -49,7 +54,9 @@ const StudentDetailTable = ({ studentData, sliderState }) => {
                       student.emergency_contacts.map(contact => {
                         return (
                           <ul key={contact.ContactId}>
-                            <li>{contact.first_name}{" "}{contact.last_name} - {contact.Description}</li>
+                            <li onClick={() => contactInfo(contact)} className="link">
+                              {contact.first_name}{" "}{contact.last_name} - {contact.Description}
+                            </li>
                           </ul>
                         )
                       })
