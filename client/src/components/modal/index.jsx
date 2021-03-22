@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import Slider from '../slider';
 
-const FilterModal = ({buttonLabel}) => {
+const FilterModal = ({buttonLabel, setSliderState, sliderState}) => {
 
   const [modal, setModal] = useState(false);
 
@@ -15,12 +15,8 @@ const FilterModal = ({buttonLabel}) => {
         <ModalHeader toggle={toggle}>Filter By Year Group</ModalHeader>
         <ModalBody>
           <p className="mb-5">Drag Slider to select range of year groups</p>
-           <Slider />
+           <Slider setSliderState={setSliderState} sliderState={sliderState}/>
         </ModalBody>
-        <ModalFooter>
-          <Button color="primary" onClick={toggle}>GO</Button>{' '}
-          <Button color="secondary" onClick={toggle}>Cancel</Button>
-        </ModalFooter>
       </Modal>
     </div>
   );

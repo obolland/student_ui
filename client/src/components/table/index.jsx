@@ -1,7 +1,14 @@
 import { Table } from 'reactstrap';
 import Stars from '../stars/index';
 
-const StudentDetailTable = ({ studentData }) => {
+const StudentDetailTable = ({ studentData, sliderState }) => {
+
+  const filteredStudents = (studentData) => {
+    if (!studentData) return;
+    return studentData.filter(student => 
+      student.year_code >= sliderState.value[0] && student.year_code <= sliderState.value[1]
+    )
+  }
 
   return (
     <Table striped bordered className="mt-5">
@@ -14,7 +21,7 @@ const StudentDetailTable = ({ studentData }) => {
           <th>SEN</th>
         </tr>
       </thead>
-      { studentData && studentData.map(student => {
+      { studentData && filteredStudents(studentData).map(student => {
           return (
               <tbody key={student.pupil_admission_number}>
                 <tr>

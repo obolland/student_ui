@@ -1,20 +1,19 @@
-import React, {useState} from "react";
+import React from "react";
 import RcSlider from "rc-slider";
 import "./slider.styles.scss";
 const RcRange = RcSlider.createSliderWithTooltip(RcSlider.Range);
 
-const Slider = () => {
-  const [state, setState] = useState({})
-  console.log(state)
+const Slider = ({setSliderState, sliderState}) => {
+
   return (
     <div className="App">
       <RcRange
         onChange={(value) => {
-          setState({ value });
+          setSliderState({ value });
         }}
         tipFormatter={(value) => `${value}`}
         tipProps={{ visible: true }}
-        defaultValue={[4, 7]}
+        defaultValue={sliderState.value}
         min={3}
         max={12}
       />
