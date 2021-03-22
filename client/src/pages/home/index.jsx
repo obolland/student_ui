@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import BaseLayout from '../../layouts/baseLayout';
-import {Container} from 'reactstrap';
 import axios from 'axios';
 import StudentDetailTable from '../../components/table';
-import {Button} from 'reactstrap';
+import {Button, Container, Row, Col} from 'reactstrap';
+import FilterModal from '../../components/modal';
 
 const HomePage = () => {
   const [studentData, setStudentData] = useState()
@@ -39,7 +39,10 @@ const HomePage = () => {
   return (
     <BaseLayout title="STUDENT DATA" handleSubmit={handleSubmit} handleChange={handleChange} formData={formData}>
       <Container>
-        <Button color="primary" onClick={getAllStudents}>Get All Students</Button>
+        <Row>
+          <Button className="ml-3 mr-1" color="primary" onClick={getAllStudents}>Get All Students</Button>
+          <FilterModal buttonLabel="Filter" />
+        </Row>
         <StudentDetailTable studentData={studentData}/>
       </Container>
     </BaseLayout>

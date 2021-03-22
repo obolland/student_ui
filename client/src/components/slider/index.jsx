@@ -5,13 +5,12 @@ const RcRange = RcSlider.createSliderWithTooltip(RcSlider.Range);
 
 const Slider = () => {
   const [state, setState] = useState({})
-  
+  console.log(state)
   return (
     <div className="App">
       <RcRange
         onChange={(value) => {
           setState({ value });
-          console.log(value);
         }}
         tipFormatter={(value) => `${value}`}
         tipProps={{ visible: true }}

@@ -16,7 +16,7 @@ const Stars = ({ starsAwarded, provisionId }) => {
     
     return (                
       <div>
-        <h4>Rating from state: {state.rating}</h4>
+        <h4>Number of stars: {state.rating}</h4>
         <StarRatingComponent 
           name="rate1" 
           starCount={10}

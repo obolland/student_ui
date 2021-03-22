@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FilterModal from '../modal';
+//import FilterModal from '../modal';
 import {
   Collapse,
   Navbar,
@@ -48,7 +48,7 @@ const Header = ({ handleSubmit, handleChange, formData }) => {
                   required
                 />
                 <Button type="submit" color="primary" className="ml-2 mr-2">GO</Button>
-                <FilterModal buttonLabel="Filter" />
+                {/* <FilterModal buttonLabel="Filter" /> */}
               </InputGroup>
             </form>
           </NavbarText>
