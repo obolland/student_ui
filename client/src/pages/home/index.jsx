@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/baseLayout';
 import {Container} from 'reactstrap';
 import axios from 'axios';
 import StudentDetailTable from '../../components/table';
+import {Button} from 'reactstrap';
 
 const HomePage = () => {
   const [studentData, setStudentData] = useState()
@@ -25,20 +26,20 @@ const HomePage = () => {
     setFormData({ ...formData, [name]: value })
   }
 
-  // useEffect(() =>{
-  //   axios.get('/api/studentData')
-  //   .then(function (response) {
-  //     console.log(response.data)
-  //     setStudentData(response.data)
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   });
-  // }, [])
+  const getAllStudents = () => {
+    axios.get('http://localhost:9000/getAllStudents')
+    .then(res => {
+      setStudentData(res.data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
 
   return (
     <BaseLayout title="STUDENT DATA" handleSubmit={handleSubmit} handleChange={handleChange} formData={formData}>
       <Container>
+        <Button color="primary" onClick={getAllStudents}>Get All Students</Button>
         <StudentDetailTable studentData={studentData}/>
       </Container>
     </BaseLayout>

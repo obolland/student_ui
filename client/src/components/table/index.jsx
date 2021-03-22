@@ -1,4 +1,5 @@
 import { Table } from 'reactstrap';
+import Stars from '../stars/index';
 
 const StudentDetailTable = ({ studentData }) => {
 
@@ -53,7 +54,8 @@ const StudentDetailTable = ({ studentData }) => {
                         return (
                           <div key={sen.ProvisionId}>
                             <b>Provision ID - </b>{sen.ProvisionId}<br/>
-                            <b>Provision Code - </b>{sen.ProvisionTypeCode}
+                            <b>Provision Code - </b>{sen.ProvisionTypeCode} <br/>
+                            <Stars starsAwarded={sen.StarsAwarded}/>
                           </div>
                         )
                       })

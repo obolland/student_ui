@@ -2,9 +2,9 @@ const inputData = require('./input_mis_data')
 
 const outputData = inputData.map(student => {
   return {
-      "source_id": student.LearnerId,
+      "source_id": student.LearnerId.toString(),
       "old_source_id": null,
-      "pupil_admission_number": student.LearnerCode,
+      "pupil_admission_number": student.LearnerCode.toString(),
       "first_name": student.Forename.toLowerCase(),
       "legal_first_name": student.LegalForename,
       "full_name": student.Forename.toLowerCase() +" "+ student.Surname.toLowerCase(),
@@ -64,7 +64,8 @@ const outputData = inputData.map(student => {
           "ProvisionTypeCode": contact.ProvisionTypeCode,
           "StartDate": contact.StartDate,
           "ReviewDate": contact.ReviewDate,
-          "EndDate": contact.EndDate
+          "EndDate": contact.EndDate,
+          "StarsAwarded": contact.StarsAwarded ? contact.StarsAwarded : 0
         }
       })
   }

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import FilterModal from '../modal';
-
 import {
   Collapse,
   Navbar,
