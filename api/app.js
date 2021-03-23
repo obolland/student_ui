@@ -5,8 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require("cors");
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+
 var getStudentsBySearch = require("./routes/getStudentsSearch");
 var getAllStudents = require("./routes/getAllStudents");
 var writeStars = require("./routes/writeStars");
@@ -24,8 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+
 app.use("/getStudentsSearch", getStudentsBySearch);
 app.use("/getAllStudents", getAllStudents);
 app.use("/writeStars", writeStars);
