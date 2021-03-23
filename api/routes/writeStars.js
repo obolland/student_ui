@@ -14,7 +14,7 @@ router.post('/', function(req, res, next) {
   
   //add the stars to the object
   var data = result(provisionId)
-  data[0].SENStarsAwarded = 5;  //add stars variable here
+  data[0].SENStarsAwarded = stars;  //add stars variable here
   
   //return all student objects apart from the one above
   var filtered = outputData.filter(obj => !Object.values(obj).includes('1095'));
